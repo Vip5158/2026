@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy New Year 2026!</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <!-- html2canvas library for saving card as image -->
+    <script src="https://html2canvas.hertzen.com/dist/html2canvas.min.js"></script>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-content">
+            <div class="loading-spinner"></div>
+            <div class="loading-text">Loading 2026 Celebrations...</div>
+        </div>
+    </div>
+    
+    <!-- Background Elements -->
+    <div class="starry-night"></div>
+    <div class="stars-bg" id="starsBg"></div>
+    <div class="confetti-bg" id="confettiBg"></div>
+    <div class="fireworks-bg" id="fireworksBg"></div>
+    <div class="gradient-overlay"></div>
+    
+    <!-- Colorful Background Text -->
+    <div class="bg-text">
+        <span data-text="HAPPY">HAPPY</span>
+        <span data-text="NEW">NEW</span>
+        <span data-text="YEAR">YEAR</span>
+        <span data-text="2026">2026</span>
+    </div>
+    
+    <!-- Toast Message Container -->
+    <div id="toastContainer"></div>
+    
+    <div class="container">
+        <!-- NEW YEAR 2026 HEADING SECTION -->
+        <section class="new-year-section" id="newYearCelebration">
+            <h1 class="new-year-heading">
+                <span class="new-year-text">Happy New Year</span>
+            </h1>
+            
+            <div class="year-2026 year-glow">2026</div>
+            
+            <p class="new-year-subheading">Wishing you joy, peace, and prosperity in the new year!</p>
+            
+            <!-- Decorative elements will be added by JavaScript -->
+        </section>
+        
+        <!-- Original header (optional - you can remove or keep) -->
+        <header class="heading-3d" style="display: none;">
+            <h1>Happy New Year</h1>
+            <div class="year-3d">2026</div>
+            <p class="subtitle">Welcome to a new beginning filled with hope and joy! May 2026 bring you success, happiness, and countless blessings.</p>
+        </header>
+        
+        <!-- GREETING CARD SECTION -->
+        <section class="greeting-section">
+            <h2 class="greeting-title">🎆 Happy New Year 2026 🎆</h2>
+            
+            <div class="name-input-container">
+                <label class="name-input-label" for="userName">Enter Your Name:</label>
+                <input type="text" 
+                       id="userName" 
+                       class="name-input" 
+                       placeholder="Type your name here..."
+                       maxlength="30">
+                <button class="generate-btn" id="generateCardBtn">
+                    <i class="fas fa-gift"></i> Generate Greeting Card
+                </button>
+            </div>
+            
+            <div class="greeting-card-container" id="greetingCardContainer">
+                <div class="greeting-card" id="greetingCard">
+                    <!-- Decorative Elements -->
+                    <div class="card-decoration confetti-left">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="card-decoration confetti-right">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <div class="card-decoration star-left">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    <div class="card-decoration star-right">
+                        <i class="fas fa-star"></i>
+                    </div>
+                    
+                    <!-- Card Content -->
+                    <div class="card-header">
+                        <h3 class="card-title">🎉 Happy New Year 2026! 🎉</h3>
+                        <p class="card-subtitle">A Special Greeting For:</p>
+                    </div>
+                    
+                    <div class="user-name" id="displayUserName">Your Name</div>
+                    
+                    <div class="card-message">
+                        <p>Dear <span class="user-name-inline" id="userNameInline">Your Name</span>,</p>
+                        <p>As we welcome the dawn of 2026, may this new year bring you:</p>
+                        <ul style="text-align: left; margin-left: 20px;">
+                            <li>✨ Is naye saal ke pyaare se mauke par, khushiyon ki barsaat ho…</li>
+                            <li>🌟 Naye saal ki roshni aur ummeed aapke jeevan ko chamkaaye…</li>
+                            <li>🎉 Dil se nikli har baat aapke liye khushiyon ka paigham ban jaaye…</li>
+                            <li>💫 Naye sapno aur nayi umeed ke saath, har din aapko tarakki aur sukoon de…</li>
+                            <li>🥂 Is khubsurat naye saal ki shuruaat, aapke liye pyaar aur positivity se bhari ho…</li>
+                            <li>🌼 Har pal muskaan aur anand se roshan ho, aur har din naye avsar laaye…</li>
+                        </ul>
+                        <p>May every moment of 2026 be filled with growth, <br>opportunities, love, and boundless happiness!!</p>
+                    </div>
+                    
+                    <div class="card-footer">
+                        <p>Wishing you a fantastic year ahead filled with amazing adventures!</p>
+                        <p>✨ Happy New Year 2026! ✨</p>
+                    </div>
+                    
+                    <div class="card-actions">
+                        <button class="card-btn share-btn" id="shareCardBtn">
+                            <i class="fas fa-share-alt"></i> Share Card
+                        </button>
+                        <button class="card-btn download-btn" id="downloadCardBtn">
+                            <i class="fas fa-download"></i> Save Card as Image
+                        </button>
+                        <button class="card-btn new-card-btn" id="newCardBtn">
+                            <i class="fas fa-plus"></i> Create New Card
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Image Viewer Gallery -->
+        <div class="gallery-container">
+            <h2 class="gallery-title">New Year 2026 Gallery</h2>
+            
+            <div class="image-viewer">
+                <!-- Main Image with loading="lazy" -->
+                <img id="mainImage" class="main-image" 
+                     src="pic.png" 
+                     alt="Fireworks Display"
+                     loading="lazy">
+                
+                <div class="image-info">
+                    <h3 class="image-title" id="imageTitle">Fireworks Spectacular</h3>
+                    <p class="image-desc" id="imageDesc">Celebrating the start of 2026 with amazing fireworks around the world</p>
+                </div>
+                
+                <div class="image-nav">
+                    <button class="nav-btn prev-btn">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button class="nav-btn next-btn">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+            
+            <div class="thumbnail-container" id="thumbnails">
+                <!-- Thumbnails with loading="lazy" -->
+                <div class="thumbnail active" data-index="0">
+                    <img src="boliviainteligente-1AgT_-D6SiU-unsplash.jpg" 
+                         alt="Fireworks Spectacular"
+                         loading="lazy">
+                </div>
+                <div class="thumbnail" data-index="1">
+                    <img src="boliviainteligente-2PdUd-d6bvM-unsplash.jpg" 
+                         alt="New Year's Eve Party"
+                         loading="lazy">
+                </div>
+                <div class="thumbnail" data-index="2">
+                    <img src="boliviainteligente-7_p-1fiLE_4-unsplash.jpg" 
+                         alt="Midnight Countdown"
+                         loading="lazy">
+                </div>
+                <div class="thumbnail" data-index="3">
+                    <img src="boliviainteligente-9n6meGmnszA-unsplash.jpg" 
+                         alt="Champagne Toast"
+                         loading="lazy">
+                </div>
+                <div class="thumbnail" data-index="4">
+                    <img src="boliviainteligente-PK_PwDNrQNk-unsplash.jpg" 
+                         alt="City Celebrations"
+                         loading="lazy">
+                </div>
+                <div class="thumbnail" data-index="5">
+                    <img src="boliviainteligente-MdC1yGXBgws-unsplash.jpg" 
+                         alt="Family Gathering"
+                         loading="lazy">
+                </div>
+            </div>
+        </div>
+        
+        <!-- UPDATED IMAGE CARDS SECTION -->
+        <div class="image-cards-section">
+            <h2 class="section-title">✨ New Year Memories 2026 ✨</h2>
+            <div class="image-cards-container" id="imageCards">
+                <!-- Image cards with loading="lazy" and modified text -->
+                <div class="image-card" data-index="0">
+                    <img src="654.jpeg" 
+                         alt="Vipin Kumar"
+                         loading="lazy">
+                    <div class="image-label">
+                        <span class="name">Vipin Kumar</span>
+                    </div>
+                </div>
+                <div class="image-card" data-index="1">
+                    <img src="22.jpg" 
+                         alt="Dheeraj Kumar"
+                         loading="lazy">
+                    <div class="image-label">
+                        <span class="name">Dheeraj Kumar</span>
+                    </div>
+                </div>
+                <div class="image-card" data-index="2">
+                    <img src="What.jpeg" 
+                         alt="Abhishek Kumar"
+                         loading="lazy">
+                    <div class="image-label">
+                        <span class="name">Abhishek Kumar</span>
+                    </div>
+                </div>
+                <div class="image-card" data-index="3">
+                    <img src="44.jpg" 
+                         alt="Naveen Kumar"
+                         loading="lazy">
+                    <div class="image-label">
+                        <span class="name">Naveen Kumar</span>
+                    </div>
+                </div>
+                <div class="image-card" data-index="4">
+                    <img src="147.jpeg" 
+                         alt="Manchal Kumar"
+                         loading="lazy">
+                    <div class="image-label">
+                        <span class="name">Manchal Kumar</span>
+                    </div>
+                </div>
+                <div class="image-card" data-index="5">
+                    <img src="123456.jpeg" 
+                         alt="Chanchal Kumar"
+                         loading="lazy">
+                    <div class="image-label">
+                        <span class="name">Chanchal Kumar</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Motivational Notes Grid -->
+        <section class="motivation-section">
+            <h2 class="motivation-title">✨ 🌟 Happy New Year 2026 Shayari 🌟 ✨</h2>
+            
+            <div class="motivation-grid">
+                <div class="motivation-card">
+                    <p class="motivation-text">" Naya saal aaye banke ujala,<br>Zindagi ho khushiyon se nirala,<br>Har mushkil ho pal mein door,<br>Happy New Year 2026 – <br>success ho bharpoor! ✨"</p>
+                    <div class="author"></div>
+                </div>
+                
+                <div class="motivation-card">
+                    <p class="motivation-text">" Purane saal ki yaadein saath rahein,<br>Naye sapno ki udaan hum bharein,<br>Muskurahat ho har ek din,<br>Naya saal laaye khushiyon ke gin! 🎉"</p>
+                    <div class="author"></div>
+                </div>
+                
+                <div class="motivation-card">
+                    <p class="motivation-text">" Na rahe koi dard,na koi gila,<br>Har pal ho pyaar aur hausla,<br>Dua hai yeh naya saal,<br>Aapki zindagi kar de kamaal! 🌟"</p>
+                    <div class="author"></div>
+                </div>
+                
+                <div class="motivation-card">
+                    <p class="motivation-text">" Naya saal, nayi kahani likhen,<br>Har mod par jeet hi jeet dikhen,<br>Sapne sach ho ek-ek karke,<br>Happy New Year 2026 – <br>haste haste! 😄"</p>
+                    <div class="author"></div>
+                </div>
+                
+                <div class="motivation-card">
+                    <p class="motivation-text">" Kal jo adhura reh gaya tha,<br>Aaj usse poora kar dikhana hai,<br>Naye saal ke har ek din ko,<br>Khushiyon se sajaana hai! 🎆"</p>
+                    <div class="author"></div>
+                </div>
+                
+                <div class="motivation-card">
+                    <p class="motivation-text">"The beginning is the most important part of the work. Start 2026 with energy and enthusiasm."</p>
+                    <div class="author"></div>
+                </div>
+            </div>
+        </section>
+        
+        <footer>
+            <p>Created with <i class="fas fa-heart" style="color:#ff4500;"></i> to celebrate New Year 2026 | Wishing you a fantastic year ahead!</p>
+            <p style="margin-top: 10px;">© 2026 New Year Celebration</p>
+        </footer>
+    </div>
+    
+    <script src="script.js"></script>
+</body>
+</html>
